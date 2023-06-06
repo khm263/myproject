@@ -1,0 +1,42 @@
+https://youtu.be/1PkC-KoplbM
+
+work1.html : 
+
+첫 번째 화면을 나타내는 HTML 페이지입니다. '마음 심리 검진' 제목과 중간에 30% 너비 크기인 이미지, 밑에 '시작' 버튼이 이루어져 있고 시작 버튼을 누르면 로그인, 회원 가입, 조회하기, 조사하기가 가능한 work3.hmtl의 메인 화면으로 가게 됩니다.
+
+
+
+work2.html, work2write.php : 
+
+work3.html에서 회원가입 버튼을 누르면, 회원 가입 페이지가 나타나서 아이디와 비밀번호를 등록시켜주는 HTML 페이지와 php 입니다. form 태그 안에 있는 입력 필드들을 아이디와 비밀번호을 입력받아 서버로 호출하고 php에서 mysql 데이터 베이스에 접속하여 html의 form을 통해 입력 받은 아이디와 비밀번호를 데이터 베이스에 삽입하여 성공하면 'success inserting'이라는 안내문이 뜨면서 work2.html로 돌아갑니다. Input 통해 아이디와 비밀번호를 입력하고 form을 통하여 회원 가입을 할 아이디와 비밀번호를 php에 전송시켜 안내문이 뜨고 user1 테이블에서 member_name 과 member_pw_1을 저장하게 되는 것이죠. 이때 저장된 member_name과 member_pw_!에는 아직 심리 조사를 하지 않아서 grade과 advice이 NULL로 비어져 있는 상태입니다.
+
+
+
+work3.html, work3check.php, work3success.html : 
+
+로그인 화면, 회원 가입 버튼, 심리 검진의 조사하기 버튼, 기록 조회의 조회하기 버튼이 들어가 있는 메인 화면입니다. work3.html은 로그인 한 전의 메인 화면으로 이 화면에서 조사하기 버튼과 조회하기 버튼을 누르면 checkLogin을 이용하여 ‘로그인을 하지 않았습니다, 로그인 하시오’라는 경고창이 뜨고 work3.html으로 돌아가게 구현했습니다. 따라서 work2.html으로 가서 회원가입을 해서 로그인을 하거나, work3.html에서 아이디와 비밀번호 입력해서 로그인을 해야합니다. work3.html의 form에서 사용자의 아이디와 비밀번호를 누르고 로그인 버튼을 누르면 php 서버로 전송됩니다. work3check.php에서 html으로부터 온 아이디와 비밀번호을 확인하여 user1 테이블에 있는 올바른 member_name과 member_pw_1인지 확인하고 만약 user1 테이블과 일치하면 '로그인 성공'이라는 안내문이 뜨며 로그인 한 상태의 메인 화면인  work3success.html으로 이동하게 되고 일치하지 않으면 '로그인 실패, 회원 가입 안하셨다면 회원가입하시오'이라는 안내문이 뜨면서 work3.html으로 돌아갑니다. 로그인 한 상태의 메인 화면인 work3success.html은 script를 이용해서 url에 쿼리 매개변수를 검색하고 로그인을 했던 member_name을 화면에 표시하게 됩니다.이떄 로그인을 하였으므로 조사하기 버튼과 조회하기 버튼을 누르는 것이 가능하게 되었습니다.
+
+
+
+work4.html, work4write.php : 
+
+심리 검진인 work4. html에서는 사용자가 네 가지 질문으로 설문 조사를 진행하고 work4write.php로 제출하는 방식입니다. 나가기 버튼을 누르면 로그인 상태 유지하며 work3success.html 화면으로 돌아갈 수 있습니다. 각 한 질문에 3개의 라디오 버튼 중에서 하나의 라디오 버튼만 선택할 수 있으며, 이때 각 선택 라디오 버튼 항목에 대해 서로 다른 점수들이 부여됩니다. 첫 번째 선택 항목을 선택하면 점수를 3점으로, 두 번째 선택 항목을 선택한 경우 2점으로, 마지막 항목을 선택하게 된다면 1점으로 설정하였습니다. work4write.php에 제출하면, work4write.php에서 user_id 테이블에 있는 member_name과 각 4개의 선택 항목에 대한 점수들을 저장하고 4개의 항목에서 선택된 점수들에 대한 총합 점수를 계산하고 'totalScore'이라는 합산 변수에 저장합니다. 이때 각각의 등급과 최소 점수, 최대 점수, 그리고 조언들이 저장되어 있는 grades1 테이블에서 합산 변수를 grades1 테이블의 최소 점수와 최대 점수의 사이에 비교하면 조회하고 기준이 되는 등급과 조언을 결정하고 survey_results이라는 테이블의  totalScore과 grade, advise에 넣습니다. 이떄 grades1 테이블의 최대와 최소 점수의 기준은 'A' 등급은 최대 점수 12점 ~ 최소 점수 11점에 나오며 '조언 : 상당히 매우 괜찮은 심리 상태를 가지고 있습니다.' 이라는 조언이 나옵니다. 'B'등급은 최대 점수 10점 ~ 최소 점수 9점에 나오며 '조언 : 여전히 괜찮은 심리 상태를 가지고 있습니다. 하지만 여가 생활이 필요합니다.'이라는 조언이 나옵니다. 'C' 등급은 최대 점수 8점 ~ 최소 점수 7점에 나오며 '조언 : 기분 전환이 필요합니다. 친구를 만나거나 취미 생활 하시길 바랍니다.'이라는 조언이 나옵니다. 마지막으로 'D'등급은 최대 점수 5점 ~ 최소 점수 4점에 나오며 '조언 : 심각한 심리 상태가 보입니다. 자세한 심리 검사가 요구됩니다.'이라는 조언이 나옵니다.
+
+
+
+work5.html, work5write.php : 
+
+심리 검진 결과가 나오는 work5.html에서는 URL에서 쿼리 매개변수로 전달된 totalScore, grade, advice 값을 가져와서 해당 값을 각각 totalScore, grade, advice라는 ID를 가진 HTML 요소에 삽입하고 검색되었던 survey_results 테이블에 저장된 totalScore 합산 변수, 등급, 조언이 화면에 표시하게 해줍니다. 이때 '저장하기' 버튼을 누르면 work5write.php로 전송시켜 줍니다. work5write.php에서는 최신 심리 결과 정보가 저장된 survey_results을 가져와서 쿠키를 이용하여 로그인한 member_name 사용자인지 확인하고 user1 테이블에서 로그인 했던 member_name 사용자의 null로 비어져 있었던 등급과 조언을 업데이트하고 저장하면서 ‘데이터 업데이트 성공’이라는 안내문이 뜨고 로그인 한 상태로 work3success.html 메인 화면에 돌아갑니다.
+
+
+
+work6.html, work6write.php, workdelete.php : 
+
+먼저 work3success.html에서 기록 조회의 조회하기 버튼을 누르면 work6write.php가 실행되어 쿠키에서 'member_name' 값을 확인하고 만약 사용자의 member_name 쿠키가 존재한다면 'user1' 테이블에서 로그인을 한 사용자 의 등급과 조언 정보를 가져옵니다. 이후 work6.html로 리디렉션하고 정보 전달하고 work6.html으로 이동합니다. work6.html에서는 URL에서 member_name과 조언, 등급을 쿼리 매개변수에 검색하고 표시하게 되어 로그인 한 사용자가 저장된 등급과 조언을 확인가능하게 해줍니다. 삭제하기 버튼을 누르면 workdelete.php가 실행합니다. workdelete.php는 쿠키를 통해 로그인한 member_name 사용자를 확인하고 user1 테이블에서 해당 사용자에 저장되어 있던 등급과 조언을 null 상태로 업데이트 시키고 조언과 등급에 대한 쿠키를 삭제하여 ‘삭제하였습니다’ 라는 안내문이 뜨게 하고 로그인 한 메인 화면인 work3success.html로 이동하게 됩니다.
+
+
+
+workout.php : 
+
+workout.php는 사용자의 쿠키에서 'member_name' 값을 확인하고 만약 'member_name'쿠키가 존재한다면, 페이지 리디렉션을 하여 work3success.html 페이지로 이동하고, URL에 쿼리 매개변수로 member_name 값을 추가하여 전달하여 로그인 상태로 나가게 됩니다.
+

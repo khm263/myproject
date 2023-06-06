@@ -1,0 +1,267 @@
+<!---work3success.html은 script를 이용해서 url에 쿼리 매개변수를 검색하고 로그인을 했던 member_name을 화면에 표시하게 됩니다.이떄 로그인을 하였으므로 조사하기 버튼과 조회하기 버튼을 누르는 것이 가능하게 되었습니다.--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+   
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content="" /> <!-- website name -->
+    <meta property="og:site" content="" /> <!-- website link -->
+    <meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>LOGIN</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/leadmark.css">
+<script>
+<!--member_name을 화면에 표시하게 해준 스크립트-->
+window.onload = function() {
+    var member_name = getParameterByName('member_name');
+    document.getElementById('member_name1').textContent = member_name;
+}
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+</script>
+    <style>
+
+       body {
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+       
+    }
+
+  h1 {
+        font-size: 6px; 
+        margin-bottom: 20px; 
+      }
+
+h2 {
+        font-size: 20px; 
+        margin-bottom: 20px; 
+      }
+
+      .rounded-corners.large {
+        background-color: #f0f0f0;
+        border-radius: 15px;
+        padding: 40px;
+        width: 100%;
+        max-width: 300px;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navbar {
+        margin-bottom: 0%;
+        height: 200px;
+      }
+
+      .mr-2{
+        font-size: 20px;
+         display: inline-block;
+         white-space: nowrap;
+         
+      }
+
+      .btn {
+      background-color: #83c2f4;
+    }
+
+      
+      .btn:focus,
+      .btn:active,
+      .btn:hover,
+      .navbar-nav .nav-link:focus,
+      .navbar-nav .nav-link:active,
+      .navbar-nav .nav-link:hover {
+        outline: none;
+        box-shadow: none !important;
+      }
+
+      /* Responsive styles */
+      @media screen and (min-width: 480px) {
+        .navbar {
+           height: auto;
+        }
+
+        .rounded-corners.large {
+          margin-top: 10px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .mr-2{
+        font-size: 20px;
+         display: inline-block;
+         white-space: nowrap;
+        text-align: center;
+        top: -90px;
+         
+      }
+
+      .btn {
+       display: inline-block;
+       margin: 10px; 
+      text-align: center; 
+       }
+
+  }    
+
+       @media screen and (max-width: 760px){
+        .btn.btn-light.btn-sm.ml-1 {
+          position: relative;
+          top: -70px;
+        } 
+
+           .navbar-brand {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+      }
+    
+
+      }
+
+   @media screen and (max-width: 400px){
+
+    .navbar {
+           height: auto;
+        }
+
+        .btn.btn-light.btn-sm.ml-1 {
+          position: relative;
+          top: -60px;
+        }
+
+           .navbar-brand {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+      }
+
+
+      }
+
+
+   @media screen and (width: 540px){
+
+    .navbar {
+           height: auto;
+        }
+
+        .btn.btn-light.btn-sm.ml-1 {
+          position: relative;
+          top: -140px;
+        }
+
+           .navbar-brand {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+      }
+
+      }
+
+@media screen and (width: 414px){
+
+    .navbar {
+           height: auto;
+        }
+
+        .btn.btn-light.btn-sm.ml-1 {
+          position: relative;
+          top: -140px;
+        }
+
+           .navbar-brand {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+      }
+
+      }
+
+
+@media screen and (max-width: 280px) {
+
+  .navbar {
+           height: auto;
+        }
+
+        .btn.btn-light.btn-sm.ml-1 {
+          position: relative;
+          top: -40px;
+        }
+
+           .navbar-brand {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+      }
+
+      }
+
+
+
+    </style>
+</head>
+<body>
+  <h1>저작권 : Empathy icons created by Freepik - Flaticon Feedback icons created by Freepik - Flaticon Trust icons created by Freepik - Flaticon</h1>
+  <br>
+  <br>
+  <div class="rounded-corners large" style="margin-top: 10px; margin-left: auto; margin-right: auto;">
+    <form action="loginCheck.php" method="post" enctype="multipart/form-data">
+        <!-- 아이디 표시 및 로그아웃 버튼 -->
+        <table width="290" height="70">
+            <tr>
+                 <h2>아이디:<span id="member_name1"></span></span></h2>
+                <button type="button" class="btn btn-primary" onclick="location.href='work3.html'">로그아웃</button>
+            </tr>
+        </table>
+        <br><br>
+    </form>
+  </div>
+  <!-- 심리 검진의 조사 시작 버튼 -->
+<nav class="navbar navbar-expand-md navbar-dark bg-info rounded shadow mb-0">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="assets/imgs/그림02.png" alt="이미지" style="width: 50%;"></a>
+     <div class="d-flex align-items-center ml-auto justify-content-center">
+      <span class="mr-2" style="position: absolute; top: 80px;">심리 검진</span>
+      <a href="#book-table" class="btn btn-light btn-sm ml-1" onclick="location.href='work4.html'">조사시작</a>
+    </div>                   
+  </div>
+</nav>
+<!-- 기록 조회의 조회하기 버튼 -->
+<nav class="navbar navbar-expand-md navbar-dark bg-success rounded shadow mb-0">
+  <div class="container">  
+    <a class="navbar-brand" href="#"><img src="assets/imgs/그림03.png" alt="이미지" style="width: 50%;"></a>
+    <div class="d-flex align-items-center ml-auto justify-content-center">
+      <span class="mr-2" style="position: absolute; top: 80px;">기록 조회</span>
+      <form action="work6write.php" method="post" enctype="multipart/form-data">
+        <button type="submit" class="btn btn-light btn-sm ml-1">조회하기</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!--첫 번째 화면을 나타내는 HTML 페이지입니다. '마음 심리 검진' 제목과 중간에 30% 너비 크기인 이미지, 밑에 '시작' 버튼이 이루어져 있고 시작 버튼을 누르면 로그인, 회원 가입, 조회하기, 조사하기가 가능한 work3.hmtl의 화면으로 가게 됩니다.-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> // Bootstrap 반응형 웹 속성
+  <meta name="description" content="Start your development with LeadMark landing page.">
+  <meta name="author" content="Devcrud">
+  <title>LeadMark Landing page | Components</title>
+  <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/leadmark.css">
+</head>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #9bdb86;
+  }
+
+  .rounded-corners {
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    /* 수정된 부분 */
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 19px auto 0;
+  }
+
+  .rounded-corners.large {
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 250px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: calc(20px + 15%) auto 0;
+  }
+
+  .text {
+    flex-grow: 1;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
+
+  .rounded-btn {
+    width: 150px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 15px;
+  }
+  .navbar .navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+</style>
+
+<body>
+<section>
+<article>
+
+<!--제목-->
+<div class="rounded-corners">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary rounded shadow mb-3">
+<div class="container">
+<a class="navbar-brand mx-auto d-flex justify-content-center align-items-center" href="#" style="height: 100%;">마음 심리 검진</a>
+</div>
+</nav>
+</div>
+
+<!--중간 이미지-->
+<div class="rounded-corners">
+<img src="assets/imgs/그림01.png" alt="이미지" style="width: 30%;">
+</div>
+
+<!--시작 버튼으로 work3.html로 이동-->
+<div class="rounded-corners large" style="margin-top: 10px; margin-left: auto; margin-right: auto;">
+<button class="rounded-btn" onclick="location.href='work3.html'">시작</button>
+</div>
+</article>
+</section>
+</body>
+
+</html>
+

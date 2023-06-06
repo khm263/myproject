@@ -1,0 +1,137 @@
+<!--work6.html에서는 URL에서 member_name과 조언, 등급을 쿼리 매개변수에 검색하고 표시하게 되어 로그인 한 사용자가 저장된 등급과 조언을 확인가능하게 해줍니다. 삭제하기 버튼을 누르면 workdelete.php가 실행합니다.-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with LeadMark landing page.">
+  <meta name="author" content="Devcrud">
+  <title>LeadMark Landing page | Components</title>
+  <!-- font icons -->
+  <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+  <!-- Bootstrap + Steller  -->
+  <link rel="stylesheet" href="assets/css/leadmark.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    .navbar {
+      background-color: #c7d775;
+    }
+
+    #member_name {
+      font-size: 20px;
+    }
+
+    #grade {
+      font-size: 20px;
+    }
+
+    #advice {
+      font-size: 14px;
+    }
+
+    .mb-2 {
+      border-radius: 15px;
+      padding: 1px;
+      width: 100%;
+      max-width: 550px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 19px auto 0;
+    }
+
+    .rounded-corners.large {
+      background-color: #faf7f7;
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 300px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      background-color: #83c2f4;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 480px) {
+      .rounded-corners.large {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+
+      #advice {
+        font-size: 9px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <article>
+      <div class="rounded-corners">
+        <nav class="navbar navbar-expand-sm navbar-dark rounded shadow mb-3">
+          <div class="container">
+            <a class="navbar-brand mx-auto d-flex justify-content-center align-items-center" href="#" style="height: 100%;"><h1>심리 조회</h1></a>   
+          </div>
+        </nav>
+      </div>
+      <!-- 조회된 member_name과 grade, advice -->
+      <form name="frmInput" action="work6write.php" method="post" enctype="multipart/form-data">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow mb-2">
+          <div class="container">
+            <a class="navbar-brand mx-auto d-flex" href="#" style="height: 100%;">계정: <span id="member_name"></span></a>
+            <a class="navbar-brand mx-auto d-flex" href="#" style="height: 100%;">등급: <span id="grade"></span></a>
+          </div>
+        </nav>
+         <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow mb-2">
+          <div class="container">
+           <a class="navbar-brand mx-auto d-flex" href="#" style="height: 100%;"><span id="advice"></span></a>
+        </div>
+        </nav>
+           </form>
+           <!-- workdelete.php를 실행하여 grade와 advice를 NULL로 업데이트 시켜 삭제하기 -->
+           <form name="frmInput" action="workdelete.php" method="post" enctype="multipart/form-data">
+        <div style="display: flex; justify-content: center;">
+          <button type="submit" class="btn btn-primary btn-lg" type="button">삭제하기</button>
+        </div>
+      </form>
+      <!-- 로그인 한 상태로 work3successed.html으로 나가기-->
+       <form name="frmInput" action="workout.php" method="post" enctype="multipart/form-data">
+          <div style="display: flex; justify-content: center;">
+          <button type="submit" class="btn btn-primary btn-lg" type="button">나가기</button>
+        </div>
+      </form>
+    </article>
+  </section>
+  <script>
+    // URL에서 쿼리 매개변수 검색
+    const urlParams = new URLSearchParams(window.location.search);
+    const memberName = urlParams.get('member_name');
+    const grade = urlParams.get('grade');
+    const advice = urlParams.get('advice');
+
+    // 검색된 정보를 표시
+    const memberNameElement = document.getElementById('member_name');
+    const gradeElement = document.getElementById('grade');
+    const adviceElement = document.getElementById('advice');
+
+    memberNameElement.textContent = memberName;
+    gradeElement.textContent = grade;
+    adviceElement.textContent = advice;
+  </script>
+</body>
+</html>

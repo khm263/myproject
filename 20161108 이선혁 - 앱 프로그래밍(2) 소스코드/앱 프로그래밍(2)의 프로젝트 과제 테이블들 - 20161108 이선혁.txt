@@ -1,0 +1,55 @@
+CREATE TABLE user1 (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    member_name VARCHAR(30) DEFAULT NULL,
+    member_pw_1 VARCHAR(30) DEFAULT NULL,
+    grade VARCHAR(100) DEFAULT NULL,
+    advice VARCHAR(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE survey1 (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    radio1 VARCHAR(100) DEFAULT NULL,
+    radio2 VARCHAR(100) DEFAULT NULL,
+    radio3 VARCHAR(100) DEFAULT NULL,
+    radio4 VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES user1(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;   
+
+
+CREATE TABLE grades1 (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    grade CHAR(1) NOT NULL,
+    min_score FLOAT,
+    max_score FLOAT,
+    advice TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO grades1 (grade, min_score, max_score, advice)
+VALUES ('A', 11.0, 12.0, '조언 : 상당히 매우 괜찮은 심리 상태를 가지고 있습니다.'),
+       ('B', 9.0, 10.0, '조언 : 여전히 괜찮은 심리 상태를 가지고 있습니다. 하지만 여가 생활이 필요합니다.'),
+       ('C', 7.0, 8.0, '조언 : 기분 전환이 필요합니다. 친구를 만나거나 취미 생활 하시길 바랍니다.'),
+       ('D', 4.0, 5.0, '조언 : 심각한 심리 상태가 보입니다. 자세한 심리 검사가 요구됩니다.');
+
+
+
+CREATE TABLE survey_results (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  total_score INT,
+  grade VARCHAR(10),
+  advice VARCHAR(255)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,130 @@
+<!-- 심리 검진 결과가 나오는 work5.html에서는 URL에서 쿼리 매개변수로 전달된 totalScore, grade, advice 값을 가져와서 해당 값을 각각 totalScore, grade, advice라는 ID를 가진 HTML 요소에 삽입하고  survey_results이라는 테이블에 저장되어 있던 totalScore 합산 변수, 등급, 조언이 화면에 표시하게 해줍니다. -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with LeadMark landing page.">
+  <meta name="author" content="Devcrud">
+  <title>LeadMark Landing page | Components</title>
+  <!-- font icons -->
+  <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+  <!-- Bootstrap + Steller  -->
+  <link rel="stylesheet" href="assets/css/leadmark.css">
+   <script language="javascript">
+    //URL의 쿼리 매개변수에서 값을 가져와서 해당 값을 특정 HTML 요소에 삽입하는 역할
+    window.onload = function() {
+      var totalScore = getParameterByName('totalScore');
+      var grade = getParameterByName('grade');
+      var advice = getParameterByName('advice');
+      
+      document.getElementById('totalScore').textContent = totalScore;
+      document.getElementById('grade').textContent = grade;
+      document.getElementById('advice').textContent = advice;
+    }
+
+    function getParameterByName(name, url = window.location.href) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    .navbar {
+  background-color: #4aa8d8;
+}
+
+  #advice {
+    font-size: 13px;
+  }
+
+ .mb-2 {
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 550px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 19px auto 0;
+  }
+
+.rounded-corners.large{
+  background-color: #faf7f7;
+  border-radius: 15px;
+  padding: 40px;
+  width: 100%;
+  max-width: 300px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: #83c2f4;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+   .rounded-corners.large {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+#advice {
+    font-size: 9px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <section>
+    <article>
+      <div class="rounded-corners">
+        <nav class="navbar navbar-expand-sm navbar-dark rounded shadow mb-3">
+          <div class="container">
+            <a class="navbar-brand mx-auto d-flex justify-content-center align-items-center" href="#" style="height: 100%;"><h1>심리 결과</h1></a>   
+          </div>
+        </nav>
+            </div>
+
+            <!-- survey_results이라는 테이블에 저장되어 있던 totalScore 합산 변수, 등급, 조언이 화면에 표시 -->
+         <form name="frmInput" action="work5write.php" method="post" enctype="multipart/form-data">
+         <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow mb-2">
+         <div class="container">
+          <a class="navbar-brand mx-auto d-flex" href="#" style="height: 100%;">총 점수: <span id="totalScore"></span></a>
+          <br>
+          <a class="navbar-brand mx-auto d-flex" href="#" style="height: 100%;">등급: <span id="grade"></span></a>
+         </div>
+         </nav>
+         <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow mb-2">
+         <div class="container">
+          <a class="navbar-brand mx-auto d-flex" href="#" style="height: 100%;"><span id="advice"></span></a>
+         </div>
+         </nav>
+        <div style="display: flex; justify-content: center;">
+        <button type="submit" class="btn btn-primary btn-lg" type="button">저장하기</button>
+        </div>
+        </form>
+        <form name="frmInput" action="workout.php" method="post" enctype="multipart/form-data">
+         <div style="display: flex; justify-content: center;">
+        <button type="submit" class="btn btn-primary btn-lg" type="button">나가기</button>
+        </div>
+       </form>
+    </article>
+  </section>
+</body>
+</html>
